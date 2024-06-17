@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+:root{
+  --main-color:#1031a1;
+  --sub-color:#2ea4ff;
+  --headerHeight:70px;
+  --navHeight:60px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+  width: 100%; max-width: 1200px; height: 100vh; margin: auto;
+  background-color: #fff; position: relative;
+  padding-top: var(--headerHeight); padding-bottom: var(--navHeight);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* HEADER */
+header{
+  position: fixed; top: 0; left: 0; right: 0;
+  height:  var(--headerHeight); background-color: #fff;
+  border-bottom: 1px solid #bbb;
+  z-index: 1;
+}
+header .logo{
+  width: 170px; margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* BOTTOM NAV */
+.bottom-nav {
+  position: fixed; bottom:0; left: 0; right: 0;
+  border-top:1px solid #bbb;
+}
+.bottom-nav .main-menu{
+  display: flex; justify-content: center; align-items: center;
+  padding: 5px; background-color: #fff; height: var(--navHeight);
+}
+.bottom-nav .main-menu > li{width: 100px; position: relative;}
+.bottom-nav .main-menu > li::after{
+  display: block; width: 1px; height: 40px;
+  background: #ddd; content: ''; 
+  position: absolute; top: 5px; right: 0;
+}
+.bottom-nav .main-menu > li:last-child{margin-right: 0px;}
+.bottom-nav .main-menu > li:last-child::after{
+  display: none;
+}
+.bottom-nav .main-menu > li a{
+  display: flex; flex-direction: column; align-items: center;
+}
+.bottom-nav .main-menu > li a i{
+  font-size: 30px; margin-bottom: 3px;
+}
+.bottom-nav .main-menu > li a span{
+  font-size: 12px;
+}
+.bottom-nav .main-menu > li:hover a,
+.bottom-nav .main-menu > li:hover span{
+  opacity: 0.7;
 }
 
-.App-link {
-  color: #61dafb;
+/* MAIN */
+main{
+  width: 100%; height: 100%;
+  position: relative;
+}
+.title{
+  margin-bottom: 10px; font-size: 20px;
+  border-bottom:1px solid var(--main-color);
+  width: fit-content; padding-bottom: 3px; padding-right: 10px;
+}
+.title i{ margin-right: 7px; color: var(--main-color); }
+
+/* MAIN - LOGIN */
+.login{
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+.login ul{
+  width: 100%;
+}
+.login ul li{
+  width: 100%; margin-bottom: 10px;
+}
+.login ul li:last-child{margin-bottom: 0;}
+.login ul li button,
+.login ul li input{
+  width: 100%; font-size: 18px; padding: 10px;
+}
+.login ul li button{
+  border:none; color: #fff;
+}
+.login ul li button:hover,
+.login ul li button:focus,
+.login ul li button:active{ 
+  opacity: 0.7;
+}
+.login ul li button.seller{
+  background-color: var(--main-color);
+}
+.login ul li button.manager{
+  background-color: rgb(188, 52, 77);
+}
+.login ul li button.editor{
+  background-color: rgb(240, 214, 88);
+}
+.login ul li button.login-btn{
+  background-color: var(--main-color);
+}
+.login ul li input:focus,
+.login ul li input:active{
+  outline:2px solid var(--sub-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login .search-acc{
+  display: flex; justify-content: center;
+  margin-top: 20px;
+}
+.login .search-acc a{ margin-right: 16px; position: relative; }
+.login .search-acc a:last-child{margin-right: 0;}
+.login .search-acc a::after{
+  display: block; content: ''; background-color: #bbb;
+  width: 1px; height: 10px;
+  position: absolute; top: 7px; right: -8px;
+}
+.login .search-acc a:last-child::after{display: none;}
+
+.find{position: relative;}
+.return{
+  position: absolute; top: 0; right: 0;
+  font-size: 20px; background-color: transparent; border: none;
+  color: var(--main-color);
 }
