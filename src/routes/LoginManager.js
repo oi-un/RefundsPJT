@@ -1,12 +1,10 @@
 import Search from "../components/Search";
+import Title from "../components/Title";
 
 export default function LoginManager() {
   return (
-    <div className='login'>
-      <h3 className="title">
-        <i className="fa-solid fa-hashtag"></i>
-        진행자 로그인
-      </h3>
+    <div className='container'>
+      <Title>진행자 로그인</Title>
       <form>
         <ul>
           <li>

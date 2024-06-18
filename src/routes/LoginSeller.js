@@ -1,12 +1,10 @@
 import Search from "../components/Search";
+import Title from "../components/Title";
 
 export default function LoginSeller() {
   return (
-    <div className='login'>
-      <h3 className="title">
-        <i className="fa-solid fa-hashtag"></i>
-        판매자 로그인
-      </h3>
+    <div className='container'>
+      <Title>판매자 로그인</Title>
       <form>
         <ul>
           <li>

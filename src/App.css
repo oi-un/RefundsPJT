@@ -1,6 +1,9 @@
+@charset "utf-8";
+
 :root{
   --main-color:#1031a1;
   --sub-color:#2ea4ff;
+  --red-color:rgb(188, 52, 77);
   --headerHeight:70px;
   --navHeight:60px;
 }
@@ -31,7 +34,9 @@ header .logo{
   display: flex; justify-content: center; align-items: center;
   padding: 5px; background-color: #fff; height: var(--navHeight);
 }
-.bottom-nav .main-menu > li{width: 100px; position: relative;}
+.bottom-nav .main-menu > li{
+  width: 100px; position: relative;
+}
 .bottom-nav .main-menu > li::after{
   display: block; width: 1px; height: 40px;
   background: #ddd; content: ''; 
@@ -41,16 +46,17 @@ header .logo{
 .bottom-nav .main-menu > li:last-child::after{
   display: none;
 }
-.bottom-nav .main-menu > li a{
+.bottom-nav .main-menu > li button{
   display: flex; flex-direction: column; align-items: center;
+  width: 100%; border:none; background-color: transparent
 }
-.bottom-nav .main-menu > li a i{
+.bottom-nav .main-menu > li button i{
   font-size: 30px; margin-bottom: 3px;
 }
-.bottom-nav .main-menu > li a span{
+.bottom-nav .main-menu > li button span{
   font-size: 12px;
 }
-.bottom-nav .main-menu > li:hover a,
+.bottom-nav .main-menu > li:hover button,
 .bottom-nav .main-menu > li:hover span{
   opacity: 0.7;
 }
@@ -60,6 +66,12 @@ main{
   width: 100%; height: 100%;
   position: relative;
 }
+.container{
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%; min-width: 400px;
+}
+
 .title{
   margin-bottom: 10px; font-size: 20px;
   border-bottom:1px solid var(--main-color);
@@ -67,61 +79,126 @@ main{
 }
 .title i{ margin-right: 7px; color: var(--main-color); }
 
-/* MAIN - LOGIN */
-.login{
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-}
-.login ul{
+.container ul{
   width: 100%;
 }
-.login ul li{
+.container ul li{
   width: 100%; margin-bottom: 10px;
 }
-.login ul li:last-child{margin-bottom: 0;}
-.login ul li button,
-.login ul li input{
+.container ul li:last-child{margin-bottom: 0;}
+.container ul li button,
+.container ul li input{
   width: 100%; font-size: 18px; padding: 10px;
+  border: 1px solid #aaa;
 }
-.login ul li button{
-  border:none; color: #fff;
+.container ul li button{
+  border:none; color: #fff; background-color: var(--main-color);
 }
-.login ul li button:hover,
-.login ul li button:focus,
-.login ul li button:active{ 
+.container ul li button:hover,
+.container ul li button:focus,
+.container ul li button:active{ 
   opacity: 0.7;
 }
-.login ul li button.seller{
+
+.container .search{ width: 100%;}
+.container .search input{ 
+  width: 100%; border: 1px solid #aaa; position: relative;
+  font-size: 18px; padding: 10px; 
+}
+.container .search input:focus{
+  outline: 2px solid var(--sub-color);
+}
+.container .search button{
+  width: 50px; height: 44.8px;
+  font-size: 25px; color: #fff; 
+  border:none; background-color: var(--main-color);
+  position: absolute; right: 0px;
+}
+.container .alert{
+  position: absolute; top: 17px; right: 0;
+  color: var(--red-color); font-size: 13px;
+  border-bottom: 1px solid var(--red-color);
+  font-weight: bold;
+}
+
+.table-container{
+  width: 100%; padding: 30px;
+}
+.table-container .title{
+  border:none;
+}
+.table-container table thead{
+  border-top: 2px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
+}
+.table-container table thead th{
+  padding: 5px;
+}
+.table-container table tbody tr{
+  border-bottom: 1px solid #bbb;
+}
+.table-container table tbody tr:last-child{
+  border-bottom:2px solid var(--main-color)
+}
+.table-container table tbody tr:hover{
+  background-color: #eee;
+}
+.table-container table tbody td{
+  padding: 7px 0;
+}
+.table-container table tbody tr td:nth-child(1),
+.table-container table tbody tr td:nth-child(2),
+.table-container table tbody tr td:nth-child(3){
+  text-align: center;
+}
+.table-container table tbody tr td:nth-child(4),
+.table-container table tbody tr td:nth-child(5){
+  text-align: right;
+  padding-right: 8px;
+}
+.table-container table tbody tr td.remove{
+  text-align: center;
+}
+.table-container table tbody tr td.remove button{
+  background-color: transparent; border: none;
+}
+.table-container table tbody tr td.remove button i{
+  color: var(--red-color); font-size: 25px;
+}
+
+/* MAIN - LOGIN */
+.container ul li button.seller{
   background-color: var(--main-color);
 }
-.login ul li button.manager{
-  background-color: rgb(188, 52, 77);
+.container ul li button.manager{
+  background-color: var(--red-color);
 }
-.login ul li button.editor{
+.container ul li button.editor{
   background-color: rgb(240, 214, 88);
 }
-.login ul li button.login-btn{
+.container ul li button.login-btn{
   background-color: var(--main-color);
 }
-.login ul li input:focus,
-.login ul li input:active{
+.container ul li input:focus,
+.container ul li input:active{
   outline:2px solid var(--sub-color);
 }
 
-.login .search-acc{
+/* MAIN - SEARCH */
+.container .search-acc{
   display: flex; justify-content: center;
   margin-top: 20px;
 }
-.login .search-acc a{ margin-right: 16px; position: relative; }
-.login .search-acc a:last-child{margin-right: 0;}
-.login .search-acc a::after{
+.container .search-acc a{ margin-right: 16px; position: relative; }
+.container .search-acc a:last-child{margin-right: 0;}
+.container .search-acc a::after{
   display: block; content: ''; background-color: #bbb;
   width: 1px; height: 10px;
   position: absolute; top: 7px; right: -8px;
 }
-.login .search-acc a:last-child::after{display: none;}
+.container .search-acc a:last-child::after{display: none;}
 
+/* MAIN - FIND ACC */
 .find{position: relative;}
 .return{
   position: absolute; top: 0; right: 0;

@@ -1,10 +1,9 @@
+import Title from "../components/Title"
+
 export default function ManagerPw({ navigate }) {
   return (
-    <div className="login find">
-      <h3 className="title">
-        <i className="fa-solid fa-hashtag"></i>
-        비밀번호 찾기
-      </h3>
+    <div className="container find">
+      <Title>비밀번호 찾기</Title>
       <form>
         <ul>
           <li>

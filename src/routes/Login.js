@@ -1,10 +1,9 @@
+import Title from "../components/Title"
+
 export default function Login({ navigate }) {
   return (
-    <div className='login'>
-      <h3 className="title">
-        <i className="fa-solid fa-hashtag"></i>
-        온누리 사용자 로그인
-      </h3>
+    <div className='container'>
+      <Title>온누리 사용자 로그인</Title>
       <ul>
         <li>
           <button className="seller" onClick={() => { navigate('/login/seller') }}>

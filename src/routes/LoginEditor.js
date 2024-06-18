@@ -1,12 +1,10 @@
 import Search from "../components/Search";
+import Title from "../components/Title";
 
 export default function LoginEditor() {
   return (
-    <div className='login'>
-      <h3 className="title">
-        <i className="fa-solid fa-hashtag"></i>
-        관리자 로그인
-      </h3>
+    <div className='container'>
+      <Title>관리자 로그인</Title>
       <form>
         <ul>
           <li>
